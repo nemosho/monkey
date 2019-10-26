@@ -25,7 +25,7 @@ func (l *Lexer) readChar() {
 	l.readPosition += 1
 }
 
-func (l *Lexer) NextToken() token.Token {
+func (l *Lexer) nextToken() token.Token {
 	var tok token.Token
 
 	switch l.ch {
