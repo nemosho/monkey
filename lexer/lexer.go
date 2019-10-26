@@ -52,6 +52,8 @@ func (l *Lexer) nextToken() token.Token {
 		if isLetter(l.ch) {
 			tok.Literal = l.readIdentifier()
 			tok.Type = token.LookUpIdent(tok.Literal)
+			// Don't need to call readChar()
+			// because lexer position is next to end of current identifier after readIdentifier()
 			return tok
 		} else {
 			tok = newToken(token.ILLEGAL, l.ch)
